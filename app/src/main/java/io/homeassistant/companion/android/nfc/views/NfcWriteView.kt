@@ -24,11 +24,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.community.material.CommunityMaterial
-import io.homeassistant.companion.android.common.R as commonR
 import io.homeassistant.companion.android.util.compose.MdcAlertDialog
+import io.homeassistant.companion.android.common.R as commonR
 
 @Composable
 fun NfcWriteView(
@@ -109,3 +110,16 @@ fun NfcWriteIdentifierDialog(
         onSave = { onSubmit(inputValue.value) }
     )
 }
+
+@Preview
+@Composable
+fun NfcWriteView_NfcDisabled_Preview() {
+    NfcWriteView(isNfcEnabled = false, identifier = "identifier")
+}
+
+@Preview
+@Composable
+fun NfcWriteView_NfcEnabled_Preview() {
+    NfcWriteView(isNfcEnabled = true, identifier = "identifier", onSetIdentifier = {})
+}
+

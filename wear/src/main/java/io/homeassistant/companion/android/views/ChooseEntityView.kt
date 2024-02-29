@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.lazy.items
@@ -156,7 +157,7 @@ private fun ChooseEntityChip(
     )
 }
 
-@PreviewLightDark
+@Preview
 @Composable
 fun ChooseEntityView_Empty_Preview() {
     ChooseEntityView(entitiesByDomainOrder = remember {
@@ -166,7 +167,7 @@ fun ChooseEntityView_Empty_Preview() {
     }, favoriteEntityIds = remember { mutableStateOf(listOf()) }, onNoneClicked = {}, onEntitySelected = {}, allowNone = true)
 }
 
-@PreviewLightDark
+@Preview
 @Composable
 fun ChooseEntityView_WithData_Preview() {
     ChooseEntityView(entitiesByDomainOrder = remember {
