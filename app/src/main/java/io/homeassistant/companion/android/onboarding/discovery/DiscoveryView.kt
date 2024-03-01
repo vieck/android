@@ -1,6 +1,5 @@
 package io.homeassistant.companion.android.onboarding.discovery
 
-import android.content.res.Configuration
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -31,11 +30,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mikepenz.iconics.typeface.library.community.material.CommunityMaterial
 import io.homeassistant.companion.android.R
+import io.homeassistant.companion.android.common.R as commonR
 import io.homeassistant.companion.android.onboarding.OnboardingHeaderView
 import io.homeassistant.companion.android.onboarding.OnboardingViewModel
 import io.homeassistant.companion.android.util.homeAssistantInstance1
 import io.homeassistant.companion.android.util.homeAssistantInstance2
-import io.homeassistant.companion.android.common.R as commonR
 
 @Composable
 fun DiscoveryView(
@@ -114,7 +113,11 @@ fun DiscoveryView(
 @Preview(showSystemUi = true)
 @Composable
 fun DiscoveryViewPreview() {
-    DiscoveryView(foundInstances = remember {
-        mutableStateListOf(homeAssistantInstance1, homeAssistantInstance2)
-    }, manualSetupClicked = {  }, instanceClicked = {})
+    DiscoveryView(
+        foundInstances = remember {
+            mutableStateListOf(homeAssistantInstance1, homeAssistantInstance2)
+        },
+        manualSetupClicked = { },
+        instanceClicked = {}
+    )
 }

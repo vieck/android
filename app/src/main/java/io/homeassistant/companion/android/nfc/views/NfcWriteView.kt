@@ -28,8 +28,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.community.material.CommunityMaterial
-import io.homeassistant.companion.android.util.compose.MdcAlertDialog
 import io.homeassistant.companion.android.common.R as commonR
+import io.homeassistant.companion.android.util.compose.MdcAlertDialog
 
 @Composable
 fun NfcWriteView(
@@ -111,15 +111,14 @@ fun NfcWriteIdentifierDialog(
     )
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun NfcWriteView_NfcDisabled_Preview() {
     NfcWriteView(isNfcEnabled = false, identifier = "identifier")
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun NfcWriteView_NfcEnabled_Preview() {
     NfcWriteView(isNfcEnabled = true, identifier = "identifier", onSetIdentifier = {})
 }
-

@@ -72,7 +72,7 @@ fun NfcWelcomeView(
     }
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun NfcWelcomeViewPreview() {
     NfcWelcomeView(isNfcEnabled = true, onReadClicked = { }, onWriteClicked = {

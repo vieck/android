@@ -20,7 +20,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.material3.Button
@@ -28,6 +27,7 @@ import androidx.wear.compose.material3.ButtonDefaults
 import androidx.wear.compose.material3.Text
 import com.mikepenz.iconics.compose.Image
 import com.mikepenz.iconics.typeface.library.community.material.CommunityMaterial
+import io.homeassistant.companion.android.common.R as commonR
 import io.homeassistant.companion.android.common.data.integration.Entity
 import io.homeassistant.companion.android.common.data.integration.getIcon
 import io.homeassistant.companion.android.common.util.capitalize
@@ -37,7 +37,6 @@ import io.homeassistant.companion.android.theme.getFilledTonalButtonColors
 import io.homeassistant.companion.android.util.stringForDomain
 import java.util.Calendar
 import java.util.Locale
-import io.homeassistant.companion.android.common.R as commonR
 
 @Composable
 fun ChooseEntityView(
@@ -157,32 +156,45 @@ private fun ChooseEntityChip(
     )
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun ChooseEntityView_Empty_Preview() {
-    ChooseEntityView(entitiesByDomainOrder = remember {
-        mutableStateListOf()
-    }, entitiesByDomain = remember {
-        mutableStateMapOf()
-    }, favoriteEntityIds = remember { mutableStateOf(listOf()) }, onNoneClicked = {}, onEntitySelected = {}, allowNone = true)
+    ChooseEntityView(
+        entitiesByDomainOrder = remember {
+            mutableStateListOf()
+        },
+        entitiesByDomain = remember {
+            mutableStateMapOf()
+        },
+        favoriteEntityIds = remember { mutableStateOf(listOf()) },
+        onNoneClicked = {},
+        onEntitySelected = {},
+        allowNone = true
+    )
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun ChooseEntityView_WithData_Preview() {
-    ChooseEntityView(entitiesByDomainOrder = remember {
-        mutableStateListOf("first", "second")
-    }, entitiesByDomain = remember {
-        mutableStateMapOf(
-            Pair(
-                "first",
-                mutableStateListOf(Entity("first", "on", "", Calendar.getInstance(), Calendar.getInstance(), null))
-            ),
-            Pair(
-                "second",
-                mutableStateListOf(Entity("second", "on", "", Calendar.getInstance(), Calendar.getInstance(), null))
+    ChooseEntityView(
+        entitiesByDomainOrder = remember {
+            mutableStateListOf("first", "second")
+        },
+        entitiesByDomain = remember {
+            mutableStateMapOf(
+                Pair(
+                    "first",
+                    mutableStateListOf(Entity("first", "on", "", Calendar.getInstance(), Calendar.getInstance(), null))
+                ),
+                Pair(
+                    "second",
+                    mutableStateListOf(Entity("second", "on", "", Calendar.getInstance(), Calendar.getInstance(), null))
+                )
             )
-        )
-    }, favoriteEntityIds = remember { mutableStateOf(listOf("first")) }, onNoneClicked = {}, onEntitySelected = {}, allowNone = false)
+        },
+        favoriteEntityIds = remember { mutableStateOf(listOf("first")) },
+        onNoneClicked = {},
+        onEntitySelected = {},
+        allowNone = false
+    )
 }
-

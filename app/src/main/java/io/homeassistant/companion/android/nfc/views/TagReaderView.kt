@@ -36,9 +36,8 @@ fun TagReaderView() {
     }
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun TagReaderViewPreview() {
     TagReaderView()
 }
-

@@ -150,7 +150,7 @@ fun NfcTriggerExample(
     }
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 fun NfcEditViewPreview() {
     NfcEditView(identifier = "identifier", showDeviceSample = true, onDuplicateClicked = {}, onFireEventClicked = {})

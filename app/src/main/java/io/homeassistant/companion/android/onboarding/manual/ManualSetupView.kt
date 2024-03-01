@@ -26,9 +26,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mikepenz.iconics.typeface.library.community.material.CommunityMaterial
+import io.homeassistant.companion.android.common.R as commonR
 import io.homeassistant.companion.android.onboarding.OnboardingHeaderView
 import io.homeassistant.companion.android.onboarding.OnboardingViewModel
-import io.homeassistant.companion.android.common.R as commonR
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -38,7 +38,6 @@ fun ManualSetupView(
 ) {
     ManualSetupView(onboardingViewModel.manualUrl, onboardingViewModel::onManualUrlUpdated, onboardingViewModel.manualContinueEnabled, connectedClicked)
 }
-
 
 @Composable
 fun ManualSetupView(
@@ -100,7 +99,12 @@ fun ManualSetupView(
 @Preview(showSystemUi = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun ManualSetupViewPreview() {
-    ManualSetupView(manualUrl = remember {
-        mutableStateOf("test")
-    }, onManualUrlUpdated = {}, manualContinueEnabled = true, connectedClicked = {})
+    ManualSetupView(
+        manualUrl = remember {
+            mutableStateOf("test")
+        },
+        onManualUrlUpdated = {},
+        manualContinueEnabled = true,
+        connectedClicked = {}
+    )
 }
